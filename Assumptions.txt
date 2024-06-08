@@ -1,0 +1,24 @@
+1. Assumption: The URLs provided contain menus in the form of images with both items and prices.
+
+Reasoning: It is assumed that the URLs given in the start_urls list have menu images because many websites either don't provide menus at all or display them in different formats like plain text, HTML tables, PDF files, or external links like Google Drive. To simplify the scraping process, we are focusing on URLs where menu images are directly embedded.
+
+
+2: 
+Assumption: Some websites do not allow scraping and return errors.
+
+Reasoning: During the development and testing of the spider, it was observed that several websites, such as Zomato, have measures in place to block web scraping attempts. These measures can include CAPTCHAs, IP blocking, or simply returning HTTP errors like 403 Forbidden or 503 Service Unavailable. Therefore, the spider might not be able to scrape all targeted sites successfully.
+
+
+3: Assumption: Menu item names and prices are formatted in a predictable way.
+
+Reasoning: The script assumes that the menu items and prices follow a predictable pattern, with item names and prices appearing on the same line and prices being extractable as floating-point numbers. 
+
+
+4: Assumption: The menu images are clear and OCR-readable.
+
+Reasoning: The success of extracting text using OCR (Optical Character Recognition) depends on the clarity and quality of the images. It is assumed that the images on these websites are of high enough quality for the OCR process to accurately extract text, including item names and prices. Poor quality images might lead to inaccurate or incomplete OCR results.
+
+
+5: Assumption: Menu images are not dynamically loaded by JavaScript.
+
+Reasoning: The current scraping logic relies on static HTML content to locate menu images. If the images are loaded dynamically via JavaScript after the page has initially loaded, the spider might not be able to find them. Handling such cases would require a more advanced approach, such as using a headless browser like Selenium.
